@@ -13,7 +13,7 @@ const DashBoard = () => {
   const history = useHistory();
 
   const getUsers = async () => {
-    const res = await axios.post(`${API.endpoint}/user/get-all'`, { username });
+    const res = await axios.post(`${API.endpoint}/user/get-all`, { username });
     setUsers(res.data.data);
   }
 
