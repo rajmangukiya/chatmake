@@ -1,0 +1,60 @@
+// $primary: #FD7E14;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+input {
+  outline: none;
+  border: none;
+}
+
+.home-box {
+  width: 40% !important;
+}
+
+.chat-box::-webkit-scrollbar {
+  display: none !important;
+}
+
+@media (max-width: $xxl) {
+  .home-box {
+    width: 40% !important;
+  }
+}
+
+@media (max-width: $xl) {
+  .home-box {
+    width: 40% !important;
+  }
+}
+
+@media (max-width: $lg) {
+  .home-box {
+    width: 50% !important;
+  }
+}
+
+@media (max-width: $md) {
+  .home-box {
+    width: 70% !important;
+  }
+}
+
+@media (max-width: $sm) {
+  .footer-ul {
+    width: 80% !important;
+  }
+
+  .blog-block {
+    width: 100% !important;
+  }
+
+  .home-box {
+    width: 100% !important;
+  }
+}
+
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
