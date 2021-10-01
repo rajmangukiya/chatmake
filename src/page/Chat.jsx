@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router';
 import queryString from 'query-string';
 import { io } from "socket.io-client";
+import { API } from '../config/API/api.config';
 
-const ENDPOINT = "http://localhost:5000";
 let socket;
 
 const Chat = () => {
@@ -22,7 +22,7 @@ const Chat = () => {
   }
 
   useEffect(() => {
-    socket = io(ENDPOINT);
+    socket = io(API.hostUrl);
     socket.emit('join', { username, room });
 
     const storedMessages = JSON.parse(localStorage.getItem(room));

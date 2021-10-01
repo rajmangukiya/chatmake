@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useHistory } from 'react-router';
 import queryString from 'query-string';
 import axios from 'axios';
+import { API } from '../config/API/api.config';
 
 const DashBoard = () => {
 
@@ -12,12 +13,12 @@ const DashBoard = () => {
   const history = useHistory();
 
   const getUsers = async () => {
-    const res = await axios.post('http://localhost:5000/api/v1/user/get-all', { username });
+    const res = await axios.post(`${API.endpoint}/user/get-all'`, { username });
     setUsers(res.data.data);
   }
 
   const getGroups = async () => {
-    const res = await axios.get('http://localhost:5000/api/v1/room/get-groups');
+    const res = await axios.get(`${API.endpoint}/room/get-groups`);
     setGroups(res.data.groups);
   }
 
@@ -26,7 +27,7 @@ const DashBoard = () => {
   }
 
   const toPersonalChat = async (username2) => {
-    const { data: { data } } = await axios.post('http://localhost:5000/api/v1/room/one-to-one', {
+    const { data: { data } } = await axios.post(`${API.endpoint}/room/one-to-one`, {
       username1: username,
       username2: username2
     });
@@ -39,7 +40,7 @@ const DashBoard = () => {
 
   const makeNewGroup = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/v1/room/create-group", {username, groupname: newGroupName});
+    await axios.post(`${API.endpoint}/room/create-group`, {username, groupname: newGroupName});
     getGroups();
   }
 
