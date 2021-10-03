@@ -1,21 +1,72 @@
 // $primary: #FD7E14;
+$xsm: 380px;
 $sm: 576px;
 $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 $xxl: 1400px;
+$dark: rgb(47, 47, 47);
+$light-dark: rgb(71, 71, 71);
+$heavy-dark: rgb(30, 30, 30);
 
 input {
   outline: none;
   border: none;
 }
 
+.bg-light-dark {
+  background-color: $light-dark !important;
+}
+
+.bg-heavy-dark {
+  background-color: $heavy-dark !important;
+}
+
+.text-light-dark {
+  color: $light-dark !important;
+}
+
 .home-box {
   width: 40% !important;
 }
 
-.chat-box::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none !important;
+}
+
+.chat-one-box {
+  transition-duration: 0.2s;
+  &:hover {
+    background-color: $light-dark;
+  }
+}
+
+.chat-group-box {
+  transition-duration: 0.5s;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.group-name-btn {
+  padding: 0px 25px !important;
+  font-size: 20px !important;
+}
+
+.group-name-input {
+  width: 300px !important;
+  letter-spacing: 2px !important;
+}
+
+.chat-outer-box {
+  width: 50%;
+  height: 350px;
+  overflow-x: hidden;
+}
+
+.chat-container {
+  height: 80% !important;
+  width: 60% !important;
 }
 
 @media (max-width: $xxl) {
@@ -32,7 +83,7 @@ input {
 
 @media (max-width: $lg) {
   .home-box {
-    width: 50% !important;
+    width: 65% !important;
   }
 }
 
@@ -40,6 +91,15 @@ input {
   .home-box {
     width: 70% !important;
   }
+
+  .chat-outer-box {
+    width: 80% !important;
+  }
+  
+  .chat-container {
+    width: 75% !important;
+  }
+
 }
 
 @media (max-width: $sm) {
@@ -53,6 +113,44 @@ input {
 
   .home-box {
     width: 100% !important;
+  }
+
+  .group-name-input {
+    width: 180px !important;
+    height: 30px !important;
+  }
+
+  .group-name-btn {
+    width: 100px !important;
+    padding: 0px 5px !important;
+    font-size: 15px !important;
+  }
+
+  .chat-group-box {
+    width: 7rem !important;
+    height: 9rem !important;
+    border-radius: 40px !important;
+  }
+
+  .chat-outer-box {
+    width: 100% !important;
+  }
+
+  .chat-container {
+    width: 95% !important;
+  }
+}
+
+@media (max-width: $xsm) {
+  .group-name-input {
+    width: 100px !important;
+    height: 30px !important;
+  }
+
+  .group-name-btn {
+    width: 70px !important;
+    padding: 0px 5px !important;
+    font-size: 11px !important;
   }
 }
 

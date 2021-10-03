@@ -1,7 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useCookies } from 'react-cookie';
 import { useHistory } from 'react-router';
+import { googleIcon } from '../Component/Icons';
 import { API } from '../config/API/api.config';
+import { Authenticated } from '../utils/AuthHelpers';
 
 const Home = () => {
 
@@ -13,13 +16,26 @@ const Home = () => {
     history.push(`/dashboard?username=${username}`);
   }
 
+  const toGoogleLogin = async () => {
+    const { data: { url } } = await axios.get(`${API.endpoint}/auth/google`);
+    window.location.href = url;
+  }
+
+  useEffect(async () => {
+    const { data: { data: { id } } } = await Authenticated();
+    console.log(id);
+    id && history.push(`/dashboard?id=${id}`) 
+  }, [])
+
   return (
-    <div>
+    <div className="w-100 vh-100 bg-heavy-dark">
       <div className="home-box container py-5">
-        <h1 className="text-center text-primary mb-5">Chat Make</h1>
-        <div className="bg-primary d-flex flex-column p-5 rounded-3 justify-content-center align-items-center" style={{height: '60vh'}}>
-          <input className="w-75 rounded-3 px-3 py-2" onChange={(e) => setUsername(e.target.value)} value={username} placeholder="username" type="text"/>
-          <div onClick={toDashboard} className="btn btn-light mt-3 text-primary px-4">Enter</div>
+        <h1 className="text-center text-light mb-5">Chat Make</h1>
+        <div className="bg-light-dark d-flex flex-column p-5 rounded-3 justify-content-center align-items-center" style={{ height: '60vh' }}>
+          <div onClick={toGoogleLogin} className="btn btn-dark mt-3 text-light py-3 px-4 d-flex align-items-center">
+            {googleIcon(40, 40, 'white')}
+            <div className="ms-2 fs-5">Google Login</div>
+            </div>
         </div>
       </div>
     </div>
