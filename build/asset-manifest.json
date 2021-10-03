@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/chatmake/static/css/main.b37bf160.chunk.css",
-    "main.js": "/chatmake/static/js/main.71036f3c.chunk.js",
-    "main.js.map": "/chatmake/static/js/main.71036f3c.chunk.js.map",
+    "main.js": "/chatmake/static/js/main.a5ad928f.chunk.js",
+    "main.js.map": "/chatmake/static/js/main.a5ad928f.chunk.js.map",
     "runtime-main.js": "/chatmake/static/js/runtime-main.0dcfc90c.js",
     "runtime-main.js.map": "/chatmake/static/js/runtime-main.0dcfc90c.js.map",
     "static/js/2.ba4defee.chunk.js": "/chatmake/static/js/2.ba4defee.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.0dcfc90c.js",
     "static/js/2.ba4defee.chunk.js",
     "static/css/main.b37bf160.chunk.css",
-    "static/js/main.71036f3c.chunk.js"
+    "static/js/main.a5ad928f.chunk.js"
   ]
 }
