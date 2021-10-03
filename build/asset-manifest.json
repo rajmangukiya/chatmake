@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/chatmake/static/css/main.b37bf160.chunk.css",
-    "main.js": "/chatmake/static/js/main.a5ad928f.chunk.js",
-    "main.js.map": "/chatmake/static/js/main.a5ad928f.chunk.js.map",
+    "main.js": "/chatmake/static/js/main.e2b43c7d.chunk.js",
+    "main.js.map": "/chatmake/static/js/main.e2b43c7d.chunk.js.map",
     "runtime-main.js": "/chatmake/static/js/runtime-main.0dcfc90c.js",
     "runtime-main.js.map": "/chatmake/static/js/runtime-main.0dcfc90c.js.map",
-    "static/js/2.ba4defee.chunk.js": "/chatmake/static/js/2.ba4defee.chunk.js",
-    "static/js/2.ba4defee.chunk.js.map": "/chatmake/static/js/2.ba4defee.chunk.js.map",
+    "static/js/2.37dd04b1.chunk.js": "/chatmake/static/js/2.37dd04b1.chunk.js",
+    "static/js/2.37dd04b1.chunk.js.map": "/chatmake/static/js/2.37dd04b1.chunk.js.map",
     "static/js/3.0edc4ad8.chunk.js": "/chatmake/static/js/3.0edc4ad8.chunk.js",
     "static/js/3.0edc4ad8.chunk.js.map": "/chatmake/static/js/3.0edc4ad8.chunk.js.map",
     "index.html": "/chatmake/index.html",
     "static/css/main.b37bf160.chunk.css.map": "/chatmake/static/css/main.b37bf160.chunk.css.map",
-    "static/js/2.ba4defee.chunk.js.LICENSE.txt": "/chatmake/static/js/2.ba4defee.chunk.js.LICENSE.txt",
+    "static/js/2.37dd04b1.chunk.js.LICENSE.txt": "/chatmake/static/js/2.37dd04b1.chunk.js.LICENSE.txt",
     "static/media/logo.6ce24c58.svg": "/chatmake/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.0dcfc90c.js",
-    "static/js/2.ba4defee.chunk.js",
+    "static/js/2.37dd04b1.chunk.js",
     "static/css/main.b37bf160.chunk.css",
-    "static/js/main.a5ad928f.chunk.js"
+    "static/js/main.e2b43c7d.chunk.js"
   ]
 }

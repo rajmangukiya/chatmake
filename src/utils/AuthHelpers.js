@@ -10,8 +10,8 @@ const defaultHeaders = {
 
 export const getHttpOptions = (options = defaultHeaders) => {
 
-  let token = getCookie('auth');
-  token = token?.replace('%20', ' ');
+  let token = localStorage.getItem('token');
+  // token = token?.replace('%20', ' ');
 
   let headers = {
       Authorization: "",
@@ -34,7 +34,11 @@ export const getHttpOptions = (options = defaultHeaders) => {
   return { headers }
 }
 
-export const Authenticated = async () => {
-  const user = await axios.get(`${API.endpoint}/user/get-user`, getHttpOptions())
-  return user ? user : null;
+export const authenticated = async () => {
+  const token = localStorage.getItem('token');
+  if(token) {
+    const { data: { data } } = await axios.get(`${API.endpoint}/user/get-user`, getHttpOptions())
+    return data;
+  }
+  return 0;
 }

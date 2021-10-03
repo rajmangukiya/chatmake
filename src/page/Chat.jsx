@@ -4,7 +4,7 @@ import axios from 'axios';
 import queryString from 'query-string';
 import { io } from "socket.io-client";
 import { API } from '../config/API/api.config';
-import { Authenticated, getHttpOptions } from '../utils/AuthHelpers';
+import { authenticated, getHttpOptions } from '../utils/AuthHelpers';
 import { leftArrowIcon } from '../Component/Icons';
 import { sliceText } from '../utils/designHelper';
 
@@ -35,7 +35,7 @@ const Chat = () => {
   }
 
   const setCurrentUser = async () => {
-    const { data: { data } } = await Authenticated()
+    const data = await authenticated()
     setUser(data);
   }
 

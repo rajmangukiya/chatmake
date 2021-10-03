@@ -4,17 +4,15 @@ import { useCookies } from 'react-cookie';
 import { useHistory } from 'react-router';
 import { googleIcon } from '../Component/Icons';
 import { API } from '../config/API/api.config';
-import { Authenticated } from '../utils/AuthHelpers';
+import { authenticated } from '../utils/AuthHelpers';
+import queryString from 'query-string';
+
 
 const Home = () => {
 
   const [username, setUsername] = useState("");
   const history = useHistory();
-
-  const toDashboard = async () => {
-    await axios.post(`${API.endpoint}/user/auth/signup`, { username });
-    history.push(`/dashboard?username=${username}`);
-  }
+  const { token } = queryString.parse(window.location.search);
 
   const toGoogleLogin = async () => {
     const { data: { url } } = await axios.get(`${API.endpoint}/auth/google`);
@@ -22,9 +20,15 @@ const Home = () => {
   }
 
   useEffect(async () => {
-    const { data: { data: { id } } } = await Authenticated();
-    console.log(id);
-    id && history.push(`/dashboard?id=${id}`) 
+    console.log(window.location.origin);
+    if(token) {
+      localStorage.setItem('token', token);
+    }
+    const { id } = await authenticated();
+    if(id) {
+      window.location.href = `${window.location.origin}/#`;
+      history.push(`/dashboard?id=${id}`)
+    }
   }, [])
 
   return (

@@ -3,7 +3,7 @@ import { useLocation, useHistory } from 'react-router';
 import queryString from 'query-string';
 import axios from 'axios';
 import { API } from '../config/API/api.config';
-import { Authenticated, getHttpOptions } from '../utils/AuthHelpers';
+import { authenticated, getHttpOptions } from '../utils/AuthHelpers';
 import { generateGradient, sliceText } from '../utils/designHelper'
 import { logoutIcon } from '../Component/Icons';
 import { deleteCookie } from '../utils/Cookie';
@@ -27,9 +27,9 @@ const DashBoard = () => {
     setGroups(res.data.groups);
   }
 
-  const toHome = () => {
-    deleteCookie('auth')
-    history.push('/')
+  const logout = () => {
+    localStorage.removeItem('token');
+    // history.push('/')
   }
 
   const toPersonalChat = async (id2) => {
@@ -56,7 +56,7 @@ const DashBoard = () => {
   }
 
   const setCurrentUser = async () => {
-    const { data: { data } } = await Authenticated()
+    const data = await authenticated()
     setUser(data);
   }
 
@@ -74,7 +74,7 @@ const DashBoard = () => {
             <img className="rounded-circle me-4" src={user?.avatar} style={{ width: '4rem' }} alt="" />
             <div className="text-light d-none d-sm-flex fs-3">{user?.first_name} {user?.last_name}</div>
           </div>
-          <div onClick={toHome} className="" style={{cursor: 'pointer'}}>
+          <div onClick={logout} className="" style={{cursor: 'pointer'}}>
           {logoutIcon(40, 40, 'white')}
           </div>
         </div>
