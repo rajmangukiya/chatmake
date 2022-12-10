@@ -20,7 +20,6 @@ const Home = () => {
   }
 
   useEffect(async () => {
-    console.log(window.location.origin);
     if(token) {
       localStorage.setItem('token', token);
     }

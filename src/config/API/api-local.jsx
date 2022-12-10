@@ -1,5 +1,5 @@
 const protocol = 'http';
-const host = '192.168.56.1';
+const host = 'localhost';
 const port = '5000';
 const trailUrl = 'api/v1';
 

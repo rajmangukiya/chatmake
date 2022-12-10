@@ -1,5 +1,5 @@
 const protocol = 'https';
-const host = 'chatmake.herokuapp.com';
+const host = 'chatmake-backend.onrender.com';
 const port = '';
 const trailUrl = 'api/v1';
 
