@@ -25,7 +25,7 @@ const Home = () => {
     }
     const { id } = await authenticated();
     if(id) {
-      window.location.href = `${window.location.origin}/chatmake/#`;
+      window.location.href = `${window.location.origin}`;
       history.push(`/dashboard?id=${id}`)
     }
   }, [])
