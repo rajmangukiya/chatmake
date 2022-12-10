@@ -68,9 +68,9 @@ const DashBoard = () => {
     getGroups();
   }, [])
 
-  useEffect(() => {
-    console.log(user);
-  }, [user])
+  // useEffect(() => {
+  //   console.log(user);
+  // }, [user])
 
 
   return (

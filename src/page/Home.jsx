@@ -25,8 +25,9 @@ const Home = () => {
     }
     const { id } = await authenticated();
     if(id) {
-      window.location.href = `${window.location.origin}/dashboard?id=${id}`;
-      // history.push(`/dashboard?id=${id}`)
+      console.log('log');
+      window.location.href = `${window.location.origin}/#/dashboard?id=${id}`;
+      // history.push(`/#/dashboard?id=${id}`)
     }
   }, [])
 
