@@ -12,7 +12,7 @@ import { FiPhoneCall } from 'react-icons/fi';
 import { AiOutlineSend } from 'react-icons/ai';
 
 let socket;
-const roomJoined = new Set([]); 
+const roomJoined = new Map([]); 
 
 const ChatBox = ({ chatUser }) => {
 
@@ -65,8 +65,8 @@ const ChatBox = ({ chatUser }) => {
   }
 
   const groupMember = () => {
-    return (members?.map((member) => (<div className="flex-grow-1">
-      <img className="rounded-circle me-2" src={member?.avatar ?? defaultAvatar} style={{ width: '3rem' }}></img>
+    return (members?.map((member, index) => (<div className="flex-grow-1">
+      <img key={index} className="rounded-circle me-2" src={member?.avatar ?? defaultAvatar} style={{ width: '3rem' }}></img>
     </div>))).slice(0, 5);
   }
 
@@ -97,15 +97,18 @@ const ChatBox = ({ chatUser }) => {
     try {
       socket = io(API.hostUrl);
       console.log(roomJoined);
-      if (!(roomJoined.has(chatUser.roomId))) {
-        roomJoined.add(chatUser.roomId)
-        console.log(roomJoined);
+      if (!(roomJoined.get(user.id)?.includes(chatUser.roomId))) {
+        if(!(roomJoined.has(user.id))) roomJoined.set(user.id, [])
+        roomJoined.set(user.id, [...roomJoined.get(user.id), chatUser.roomId])
         socket.emit('join', { room: chatUser.roomId });
       }
       getMessages();
       getMembers();
     } catch (error) {
       console.log(error);
+    }
+    return () => {
+      roomJoined.delete(user.id)
     }
   }, [chatUser])
 
@@ -153,13 +156,13 @@ const ChatBox = ({ chatUser }) => {
             <div className="w-100 rounded-3 d-flex flex-column justify-content-end" style={{ height: '87%' }}>
               <div ref={chatBoxRef} className="w-100 d-flex flex-column mt-2" style={{ overflowY: 'scroll' }}>
                 {
-                  messages?.map((x) => {
+                  messages?.map((x, index) => {
                     return x.id === user?.id ? (
-                      <div className='align-self-end text-primary d-flex align-items-center' style={{ maxWidth: "80%" }}>
+                      <div key={index} className='align-self-end text-primary d-flex align-items-center' style={{ maxWidth: "80%" }}>
                         <div className="bg-primary py-2 px-3 text-light me-2 mb-2 w-100 flex-wrap text-break" style={{ borderRadius: '20px' }}>{x.message}</div>
                       </div>
                     ) : (
-                      <div className='align-self-start text-primary d-flex align-items-center' style={{ maxWidth: "80%"}}>
+                      <div key={index} className='align-self-start text-primary d-flex align-items-center' style={{ maxWidth: "80%"}}>
                         <div className="bg-dark bg-opacity-10 py-2 px-3 text-dark ms-2 mb-2 w-100 flex-wrap" style={{ borderRadius: '20px' }} >{x.message}</div>
                         {/* {!parseInt(isPersonal) ? <div className="">{x.username}</div> : ''} */}
                       </div>

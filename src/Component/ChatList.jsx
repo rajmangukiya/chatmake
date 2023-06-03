@@ -49,11 +49,12 @@ const ChatList = ({ user, dataList, chatUser, setChatUser }) => {
             </div>
             <div className='d-flex flex-column align-items-center'>
                 {
-                    dataListState.map(data => (
+                    dataListState.map((data, index) => (
                         <>
                             <div 
                                 onClick={() => openChat(data.id)} 
                                 style={{cursor: 'pointer'}} 
+                                key={index}
                                 className={`${
                                     chatUser?.id == data.id
                                     ? 'bg-dark bg-opacity-10'
