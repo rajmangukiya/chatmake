@@ -35,10 +35,15 @@ export const getHttpOptions = (options = defaultHeaders) => {
 }
 
 export const authenticated = async () => {
-  const token = localStorage.getItem('token');
-  if(token) {
-    const { data: { data } } = await axios.get(`${API.endpoint}/user/get-user`, getHttpOptions())
-    return data;
+  try {
+    const token = localStorage.getItem('token');
+    if(token) {
+      const { data: { data } } = await axios.get(`${API.endpoint}/user/get-user`, getHttpOptions())
+      return data;
+    }
+    return 0;
+  } catch (error) {
+    console.log(error);
+    return 0;
   }
-  return 0;
 }

@@ -71,6 +71,10 @@ input {
   width: 60% !important;
 }
 
+.chat-list-item:hover {
+  background-color: rgb(245, 245, 245);
+}
+
 @media (max-width: $xxl) {
   .home-box {
     width: 40% !important;
