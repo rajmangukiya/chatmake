@@ -10,7 +10,6 @@ const Layout = ({ children, ...props }) => {
 
     const navigate = useNavigate()
     const location = useLocation()
-    console.log(location.pathname, '/error', location.pathname != '/error');
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     useEffect(async () => {

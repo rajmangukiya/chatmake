@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './css/custom.css';
 import Layout from './layout';
 import Router from './router';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter, BrowserRouter } from 'react-router-dom';
 
 function App() {
 
@@ -10,9 +10,9 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Router />
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

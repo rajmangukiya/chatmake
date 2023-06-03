@@ -46,7 +46,6 @@ const ChatBox = ({ chatUser }) => {
     try {
       const data = await authenticated()
       setUser(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -96,7 +95,6 @@ const ChatBox = ({ chatUser }) => {
   useEffect(async () => {
     try {
       socket = io(API.hostUrl);
-      console.log(roomJoined);
       if (!(roomJoined.get(user.id)?.includes(chatUser.roomId))) {
         if(!(roomJoined.has(user.id))) roomJoined.set(user.id, [])
         roomJoined.set(user.id, [...roomJoined.get(user.id), chatUser.roomId])
@@ -115,7 +113,6 @@ const ChatBox = ({ chatUser }) => {
   useEffect(async () => {
     try {
       socket.on('message', async (res) => {
-        console.log('msg', res);
         setMessages((messages) => [...messages, res]);
       })
     } catch (error) {
